@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Ordering app</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Nasr's Dinner</h1>
+        <p>The best burgers and pizzas in town.</p>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" role="main">
+
+        <!-- Menu Section -->
+        <section class="menu-section">
+
+            <div id="menu-items" class="menu-items" role="list">
+
+                <!-- Menu items will be rendered here by JavaScript -->
+
+                <article class="menu-item" role="listitem">
+                    <img src="./images/pizza.png" alt="Pizza." class="menu-item-image">
+                    <div class="menu-item-details">
+                        <h3 class="menu-item-name">Pizza</h3>
+                        <p class="menu-item-ingredients">pepperoni, mushroom, mozzarella</p>
+                        <p class="menu-item-price">$14</p>
+                    </div>
+                    <button class="menu-item-add-btn">+</button>
+                </article>
+            
+                <article class="menu-item" role="listitem">
+                    <img src="./images/hamburger.png" alt="Hamburger" class="menu-item-image">
+                    <div class="menu-item-details">
+                        <h3 class="menu-item-name">Hamburger</h3>
+                        <p class="menu-item-ingredients">beef, cheese, lettuce</p>
+                        <p class="menu-item-price">$12</p>
+                    </div>
+                    <button class="menu-item-add-btn">+</button>
+                </article>
+            
+                <article class="menu-item" role="listitem">
+                    <img src="./images/beer.png" alt="Beer" class="menu-item-image">
+                    <div class="menu-item-details">
+                        <h3 class="menu-item-name">Beer</h3>
+                        <p class="menu-item-ingredients">grain, hops, yeast, water</p>
+                        <p class="menu-item-price">$12</p>
+                    </div>
+                    <button class="menu-item-add-btn">+</button>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Order Section -->
+        <section id="order-section" class="order-section hidden">
+
+            <h2>Your order</h2>
+            <div class="order-items" id="order-items" role="list">
+
+                <!-- Order items will be rendered here by JavaScript -->
+
+                <div class="order-item" role="listitem">
+                    <span>Pizza</span>
+                    <button class="remove-btn">remove</button>
+                    <span class="order-item-price">$14</span>
+                </div>
+                
+                <div class="order-item" role="listitem">
+                    <span>Beer</span>
+                    <button class="remove-btn">remove</button>
+                    <span class="order-item-price">$12</span>
+                </div>
+
+            </div>
+
+            <div class="order-total">
+                <span>Total price:</span>
+                <span id="total-amount" aria-label="Total amount">$0.00</span>
+            </div>
+
+            <button id="complete-order-btn" class="complete-order-btn">Complete order</button>
+
+        </section>
+
+    </main>
+
+    <div class="complete-order-popup hidden">
+        <form action="submit" class="complete-order-form">
+            <h2>Enter card details</h2>
+
+            <input type="text" id="name" name="name" class="complete-order-popup-input" placeholder="Enter your name" required>
+            <input type="number" name="card" id="card" class="complete-order-popup-input" placeholder="Enter card number" required>
+            <input type="number" name="CVV" id="CVV" class="complete-order-popup-input" placeholder="Enter CVV" required>
+
+            <button type="submit" class="complete-order-popup-btn">Pay</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
