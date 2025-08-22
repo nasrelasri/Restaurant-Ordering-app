@@ -156,3 +156,12 @@ h3 {
     display: none;
 }
 
+/* Thank you message */
+
+.thank-you-msg {
+    border-radius: 3px;
+    padding: 2rem 2.5rem;
+    background-color: #ECFDF5;
+    font-size: 2rem;
+    color: #065F46;
+}

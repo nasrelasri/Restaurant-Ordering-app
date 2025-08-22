@@ -23,8 +23,26 @@ menuItemsContainer.innerHTML = menuItemsHTML;
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
     handleAddBtn(e.target.dataset.add);
+
   } else if (e.target.dataset.remove) {
     handleRemoveBtn(e.target.dataset.remove);
+
+  } else if (e.target.id === "complete-order-btn") {
+    document.getElementById("complete-order-popup").classList.remove("hidden");
+
+  } else if (e.target.id === "pay-btn") {
+    e.preventDefault();
+    document.getElementById("order-section").innerHTML = `
+      <p class="thank-you-msg">Thanks! Your order is on its way!</p>
+    `;
+    document.getElementById("complete-order-popup").classList.add("hidden");
+
+  } else if (
+    document.getElementById("complete-order-popup") &&
+    !document.getElementById("complete-order-popup").classList.contains("hidden") &&
+    !document.getElementById("complete-order-popup").contains(e.target)
+  ) {
+    document.getElementById("complete-order-popup").classList.add("hidden");
   }
 });
 
