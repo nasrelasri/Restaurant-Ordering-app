@@ -28,7 +28,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-
 const handleAddBtn = function (itemId) {
   document.getElementById("order-section").classList.remove("hidden");
 
@@ -54,6 +53,7 @@ const handleAddBtn = function (itemId) {
 
 const handleRemoveBtn = function(itemId) {
   const orderItems = document.getElementById("order-items");
+
   const orderItemToRemove = orderItems.querySelector(`button[data-remove="${itemId}"]`);
   
   if (orderItemToRemove) {
@@ -64,6 +64,12 @@ const handleRemoveBtn = function(itemId) {
     totalPrice.textContent = `$${newTotalPrice}`;
     
     orderItemToRemove.parentElement.remove();
+  }
+
+  // Hide order section if no items remain
+  if (orderItems.children.length === 0) {
+    document.getElementById("order-section").classList.add("hidden");
+    document.getElementById("total-amount").textContent = "$0";
   }
 }
 
