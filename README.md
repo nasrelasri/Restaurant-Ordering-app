@@ -19,6 +19,7 @@ Built with **HTML, CSS, and JavaScript**.
 
 ## Project Structure
     ├── index.html
+    ├── data.js
     ├── style.css
     ├── script.js
     ├── images/
