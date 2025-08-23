@@ -46,6 +46,10 @@ h3 {
     gap: 1.5rem;
 }
 
+.menu-item-emoji {
+    font-size: 3.5rem;
+}
+
 .menu-item-details {
     display: flex;
     flex-direction: column;

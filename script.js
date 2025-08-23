@@ -6,7 +6,7 @@ const menuItemsContainer = document.getElementById("menu-items");
 const menuItemsHTML = menuArray
   .map(function (item) {
     return `<article class="menu-item" role="listitem">
-              <span role="img" aria-label="${item.name}">${item.emoji}</span>
+              <span class="menu-item-emoji" role="img" aria-label="${item.name}">${item.emoji}</span>
               <div class="menu-item-details">
                 <h3 class="menu-item-name">${item.name}</h3>
                 <p class="menu-item-ingredients">${item.ingredients}</p>
