@@ -12,7 +12,7 @@ const menuItemsHTML = menuArray
                 <p class="menu-item-ingredients">${item.ingredients}</p>
                 <p class="menu-item-price">$${item.price}</p>
               </div>
-              <button id="menu-item-add-btn" class="menu-item-add-btn" data-add="${item.id}">+</button>
+              <button class="menu-item-add-btn" data-add="${item.id}">+</button>
             </article>`;
   })
   .join("");
@@ -30,13 +30,6 @@ document.addEventListener("click", function (e) {
   } else if (e.target.id === "complete-order-btn") {
     document.getElementById("complete-order-popup").classList.remove("hidden");
 
-  } else if (e.target.id === "pay-btn") {
-    e.preventDefault();
-    document.getElementById("order-section").innerHTML = `
-      <p class="thank-you-msg">Thanks! Your order is on its way!</p>
-    `;
-    document.getElementById("complete-order-popup").classList.add("hidden");
-
   } else if (
     document.getElementById("complete-order-popup") &&
     !document.getElementById("complete-order-popup").classList.contains("hidden") &&
@@ -44,6 +37,15 @@ document.addEventListener("click", function (e) {
   ) {
     document.getElementById("complete-order-popup").classList.add("hidden");
   }
+});
+
+// Handle submit
+
+document.addEventListener("submit", function(e) {
+    if (e.target.id === "complete-order-form") {
+      e.preventDefault();
+      handlePayBtn(e);
+    }
 });
 
 const handleAddBtn = function (itemId) {
@@ -91,3 +93,14 @@ const handleRemoveBtn = function(itemId) {
   }
 }
 
+function handlePayBtn(e) {
+    const form = document.getElementById("complete-order-form");
+    if (form && form.checkValidity()) {
+        const name = form.querySelector("#name").value;
+        document.getElementById("order-section").innerHTML = `
+          <p class="thank-you-msg">Thanks ${name}! Your order is on its way!</p>`;
+        document.getElementById("complete-order-popup").classList.add("hidden");
+    } else if (form) {
+        form.reportValidity();
+    }
+}

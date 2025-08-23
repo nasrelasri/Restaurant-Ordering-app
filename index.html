@@ -54,12 +54,12 @@
     </main>
 
     <div id="complete-order-popup" class="complete-order-popup hidden">
-        <form action="submit" class="complete-order-form">
+        <form id="complete-order-form" class="complete-order-form">
             <h2>Enter card details</h2>
 
             <input type="text" id="name" name="name" class="complete-order-popup-input" placeholder="Enter your name" required>
-            <input type="number" name="card" id="card" class="complete-order-popup-input" placeholder="Enter card number" required>
-            <input type="number" name="CVV" id="CVV" class="complete-order-popup-input" placeholder="Enter CVV" required>
+            <input type="text" name="card" id="card" class="complete-order-popup-input" placeholder="Enter card number" pattern="\d{16}" maxlength="16" required>
+            <input type="text" name="CVV" id="CVV" class="complete-order-popup-input" placeholder="Enter CVV" pattern="\d{3,4}" maxlength="4" required>
 
             <button id="pay-btn" type="submit" class="complete-order-popup-btn">Pay</button>
         </form>
